@@ -1,0 +1,26 @@
+{
+  "name": "gqd-conventions",
+  "description": "Quantitative finance model assumption and convention lock management",
+  "version": "0.1.0",
+  "transport": "stdio",
+  "module": "gqd.mcp.conventions_server",
+  "capabilities": [
+    "convention_set",
+    "convention_check",
+    "convention_diff",
+    "convention_list",
+    "convention_describe"
+  ],
+  "fields": [
+    "pricing_model",
+    "risk_free_rate",
+    "day_count_convention",
+    "distribution_assumptions",
+    "risk_measure",
+    "return_convention",
+    "benchmark_definition",
+    "transaction_cost_model",
+    "rebalancing_frequency",
+    "data_source"
+  ]
+}
