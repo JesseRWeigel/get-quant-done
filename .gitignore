@@ -1,0 +1,45 @@
+# Scratch / temporary
+.scratch/
+
+# Market data (potentially large, may contain licensed data)
+data/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# State lock files
+.gqd/.state.lock
+.gqd/.state-write-intent
+
+# Session logs (optional — uncomment to track)
+# .gqd/observability/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment / secrets
+.env
+.env.local
+*.key
+credentials.json
