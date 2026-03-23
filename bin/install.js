@@ -215,6 +215,7 @@ function registerWithClaudeCode(env, scope) {
   const statuslineScript = path.join(hooksDir, "statusline.py");
   if (fs.existsSync(statuslineScript)) {
     settings.statusLine = settings.statusLine || {};
+    settings.statusLine.type = "command";
     settings.statusLine.command = `${env.python} ${statuslineScript}`;
     fs.writeFileSync(settingsPath, JSON.stringify(settings, null, 2) + "\n");
     console.log(`Configured statusline hook`);
