@@ -1,0 +1,26 @@
+{
+  "name": "get-quant-done",
+  "version": "0.1.0",
+  "description": "AI copilot for autonomous quantitative finance research",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JesseRWeigel/get-quant-done"
+  },
+  "bin": {
+    "get-quant-done": "bin/install.js"
+  },
+  "files": [
+    "bin/"
+  ],
+  "keywords": [
+    "quantitative-finance",
+    "trading",
+    "financial-modeling",
+    "ai",
+    "research",
+    "autonomous",
+    "claude-code",
+    "mcp"
+  ]
+}
