@@ -194,6 +194,32 @@ function registerWithClaudeCode(env, scope) {
     console.log(`Installed reference specs`);
   }
 
+  // ── Install hooks (statusline) ──
+  const hooksDir = path.join(configDir, "hooks");
+  fs.mkdirSync(hooksDir, { recursive: true });
+  const srcHooksDir = findSrcDir(env, "hooks");
+  if (srcHooksDir) {
+    const hooks = fs.readdirSync(srcHooksDir).filter(f => f.endsWith(".py"));
+    for (const hook of hooks) {
+      fs.copyFileSync(path.join(srcHooksDir, hook), path.join(hooksDir, hook));
+    }
+    console.log(`Installed ${hooks.length} hook(s)`);
+  }
+
+  // ── Configure statusline in settings.json ──
+  const settingsPath = path.join(configDir, "settings.json");
+  let settings = {};
+  if (fs.existsSync(settingsPath)) {
+    try { settings = JSON.parse(fs.readFileSync(settingsPath, "utf-8")); } catch {}
+  }
+  const statuslineScript = path.join(hooksDir, "statusline.py");
+  if (fs.existsSync(statuslineScript)) {
+    settings.statusLine = settings.statusLine || {};
+    settings.statusLine.command = `${env.python} ${statuslineScript}`;
+    fs.writeFileSync(settingsPath, JSON.stringify(settings, null, 2) + "\n");
+    console.log(`Configured statusline hook`);
+  }
+
   // ── Write manifest ──
   const manifest = {
     version: require("../package.json").version,
